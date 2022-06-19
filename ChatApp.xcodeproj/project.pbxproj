@@ -3,30 +3,54 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E15879A285F664F00EE6074 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E158799285F664F00EE6074 /* HomeViewController.swift */; };
+		1E15879E285F682A00EE6074 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E15879D285F682A00EE6074 /* HomePresenter.swift */; };
+		1E1587A3285F6AF800EE6074 /* Home+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1587A2285F6AF800EE6074 /* Home+TableView.swift */; };
+		1E15FC4C285F5AFF007A1EEE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E15FC4B285F5AFF007A1EEE /* LoginViewController.swift */; };
+		1E15FC4F285F5B25007A1EEE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E15FC4E285F5B25007A1EEE /* SignUpViewController.swift */; };
+		1E15FC54285F5D47007A1EEE /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E15FC53285F5D47007A1EEE /* LoginPresenter.swift */; };
+		1E93D9C5285F72F100A9023E /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93D9C4285F72F100A9023E /* UsersTableViewController.swift */; };
+		1E93D9CB285F736500A9023E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93D9CA285F736500A9023E /* ChatViewController.swift */; };
+		1E93D9D0285F738F00A9023E /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93D9CF285F738F00A9023E /* ChatPresenter.swift */; };
+		1E93D9D4285F741100A9023E /* UsersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93D9D3285F741100A9023E /* UsersPresenter.swift */; };
+		1E93D9D9285F75C700A9023E /* Chat+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E93D9D8285F75C700A9023E /* Chat+TableView.swift */; };
 		1E981CC1285F4E5100FB9299 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E981CC0285F4E5100FB9299 /* AppDelegate.swift */; };
 		1E981CC3285F4E5100FB9299 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E981CC2285F4E5100FB9299 /* SceneDelegate.swift */; };
-		1E981CC5285F4E5100FB9299 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E981CC4285F4E5100FB9299 /* ViewController.swift */; };
+		1E981CC5285F4E5100FB9299 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E981CC4285F4E5100FB9299 /* FirstViewController.swift */; };
 		1E981CC8285F4E5100FB9299 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E981CC6285F4E5100FB9299 /* Main.storyboard */; };
 		1E981CCA285F4E5400FB9299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E981CC9285F4E5400FB9299 /* Assets.xcassets */; };
 		1E981CCD285F4E5400FB9299 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E981CCB285F4E5400FB9299 /* LaunchScreen.storyboard */; };
 		1E981CD6285F4ED200FB9299 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E981CD5285F4ED200FB9299 /* GoogleService-Info.plist */; };
+		1EC60849285F5F5300FBE7FA /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC60848285F5F5300FBE7FA /* SignUpPresenter.swift */; };
 		2F579CEFE237D29BC48E3F3C /* Pods_ChatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5F39C2C865B755BEF14D1E /* Pods_ChatApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E158799285F664F00EE6074 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1E15879D285F682A00EE6074 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		1E1587A2285F6AF800EE6074 /* Home+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+TableView.swift"; sourceTree = "<group>"; };
+		1E15FC4B285F5AFF007A1EEE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1E15FC4E285F5B25007A1EEE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1E15FC53285F5D47007A1EEE /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		1E93D9C4285F72F100A9023E /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		1E93D9CA285F736500A9023E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		1E93D9CF285F738F00A9023E /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
+		1E93D9D3285F741100A9023E /* UsersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersPresenter.swift; sourceTree = "<group>"; };
+		1E93D9D8285F75C700A9023E /* Chat+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chat+TableView.swift"; sourceTree = "<group>"; };
 		1E981CBD285F4E5100FB9299 /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E981CC0285F4E5100FB9299 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E981CC2285F4E5100FB9299 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1E981CC4285F4E5100FB9299 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1E981CC4285F4E5100FB9299 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		1E981CC7285F4E5100FB9299 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E981CC9285F4E5400FB9299 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E981CCC285F4E5400FB9299 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E981CCE285F4E5400FB9299 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E981CD5285F4ED200FB9299 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1EC60848285F5F5300FBE7FA /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		4AC5A0DCF17D523061A32EEB /* Pods-ChatApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.release.xcconfig"; path = "Target Support Files/Pods-ChatApp/Pods-ChatApp.release.xcconfig"; sourceTree = "<group>"; };
 		580D4E975CC921DFD4FE4625 /* Pods-ChatApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.debug.xcconfig"; path = "Target Support Files/Pods-ChatApp/Pods-ChatApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5A5F39C2C865B755BEF14D1E /* Pods_ChatApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +76,117 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1E158795285F65A100EE6074 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1E158797285F65F700EE6074 /* View */,
+				1E158798285F660A00EE6074 /* Presenter */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1E158797285F65F700EE6074 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E1587A1285F6AB500EE6074 /* TableView */,
+				1E158799285F664F00EE6074 /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1E158798285F660A00EE6074 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1E15879D285F682A00EE6074 /* HomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1E1587A1285F6AB500EE6074 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				1E1587A2285F6AF800EE6074 /* Home+TableView.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		1E15FC51285F5CBD007A1EEE /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				1EC60846285F5F2300FBE7FA /* View */,
+				1EC60847285F5F3200FBE7FA /* Presenter */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		1E15FC52285F5CC8007A1EEE /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1EC60845285F5F1600FBE7FA /* View */,
+				1EC60844285F5F0700FBE7FA /* Presenter */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1E93D9BB285F716D00A9023E /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				1E93D9BD285F718400A9023E /* View */,
+				1E93D9BC285F717A00A9023E /* Presenter */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		1E93D9BC285F717A00A9023E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1E93D9D3285F741100A9023E /* UsersPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1E93D9BD285F718400A9023E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E93D9C4285F72F100A9023E /* UsersTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1E93D9C7285F733000A9023E /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				1E93D9C9285F734B00A9023E /* View */,
+				1E93D9C8285F733700A9023E /* Presenter */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		1E93D9C8285F733700A9023E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1E93D9CF285F738F00A9023E /* ChatPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1E93D9C9285F734B00A9023E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E93D9D7285F75B200A9023E /* TableView */,
+				1E93D9CA285F736500A9023E /* ChatViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1E93D9D7285F75B200A9023E /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				1E93D9D8285F75C700A9023E /* Chat+TableView.swift */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
 		1E981CB4285F4E5100FB9299 = {
 			isa = PBXGroup;
 			children = (
@@ -75,8 +210,13 @@
 			children = (
 				1E981CC0285F4E5100FB9299 /* AppDelegate.swift */,
 				1E981CC2285F4E5100FB9299 /* SceneDelegate.swift */,
-				1E981CC4285F4E5100FB9299 /* ViewController.swift */,
+				1E981CC4285F4E5100FB9299 /* FirstViewController.swift */,
 				1E981CC6285F4E5100FB9299 /* Main.storyboard */,
+				1E15FC51285F5CBD007A1EEE /* SignUp */,
+				1E15FC52285F5CC8007A1EEE /* Login */,
+				1E158795285F65A100EE6074 /* Home */,
+				1E93D9BB285F716D00A9023E /* Users */,
+				1E93D9C7285F733000A9023E /* Chat */,
 				1E981CC9285F4E5400FB9299 /* Assets.xcassets */,
 				1E981CCB285F4E5400FB9299 /* LaunchScreen.storyboard */,
 				1E981CCE285F4E5400FB9299 /* Info.plist */,
@@ -85,13 +225,44 @@
 			path = ChatApp;
 			sourceTree = "<group>";
 		};
+		1EC60844285F5F0700FBE7FA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1E15FC53285F5D47007A1EEE /* LoginPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1EC60845285F5F1600FBE7FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E15FC4B285F5AFF007A1EEE /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1EC60846285F5F2300FBE7FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E15FC4E285F5B25007A1EEE /* SignUpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1EC60847285F5F3200FBE7FA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1EC60848285F5F5300FBE7FA /* SignUpPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		21A6ED1F17A0111E61DF989D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				580D4E975CC921DFD4FE4625 /* Pods-ChatApp.debug.xcconfig */,
 				4AC5A0DCF17D523061A32EEB /* Pods-ChatApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -210,9 +381,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E981CC5285F4E5100FB9299 /* ViewController.swift in Sources */,
+				1E1587A3285F6AF800EE6074 /* Home+TableView.swift in Sources */,
+				1E93D9D0285F738F00A9023E /* ChatPresenter.swift in Sources */,
+				1E15FC54285F5D47007A1EEE /* LoginPresenter.swift in Sources */,
+				1E93D9D4285F741100A9023E /* UsersPresenter.swift in Sources */,
+				1E15FC4C285F5AFF007A1EEE /* LoginViewController.swift in Sources */,
+				1E981CC5285F4E5100FB9299 /* FirstViewController.swift in Sources */,
+				1E15879A285F664F00EE6074 /* HomeViewController.swift in Sources */,
+				1E93D9C5285F72F100A9023E /* UsersTableViewController.swift in Sources */,
 				1E981CC1285F4E5100FB9299 /* AppDelegate.swift in Sources */,
+				1E93D9D9285F75C700A9023E /* Chat+TableView.swift in Sources */,
+				1EC60849285F5F5300FBE7FA /* SignUpPresenter.swift in Sources */,
+				1E15879E285F682A00EE6074 /* HomePresenter.swift in Sources */,
 				1E981CC3285F4E5100FB9299 /* SceneDelegate.swift in Sources */,
+				1E93D9CB285F736500A9023E /* ChatViewController.swift in Sources */,
+				1E15FC4F285F5B25007A1EEE /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
