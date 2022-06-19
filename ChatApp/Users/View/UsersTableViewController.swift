@@ -26,7 +26,7 @@ class UsersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         cell.textLabel?.text = "Users"
-
+        cell.detailTextLabel?.text = "Hi this is a message"
         return cell
     }
 
