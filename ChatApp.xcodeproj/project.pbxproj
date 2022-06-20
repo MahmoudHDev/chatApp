@@ -26,6 +26,7 @@
 		1E981CCD285F4E5400FB9299 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E981CCB285F4E5400FB9299 /* LaunchScreen.storyboard */; };
 		1E981CD6285F4ED200FB9299 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E981CD5285F4ED200FB9299 /* GoogleService-Info.plist */; };
 		1EC60849285F5F5300FBE7FA /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC60848285F5F5300FBE7FA /* SignUpPresenter.swift */; };
+		1ED55743285FD0570060239D /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED55742285FD0570060239D /* UsersModel.swift */; };
 		2F579CEFE237D29BC48E3F3C /* Pods_ChatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5F39C2C865B755BEF14D1E /* Pods_ChatApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		1E981CCE285F4E5400FB9299 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E981CD5285F4ED200FB9299 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1EC60848285F5F5300FBE7FA /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		1ED55742285FD0570060239D /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
 		4AC5A0DCF17D523061A32EEB /* Pods-ChatApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.release.xcconfig"; path = "Target Support Files/Pods-ChatApp/Pods-ChatApp.release.xcconfig"; sourceTree = "<group>"; };
 		580D4E975CC921DFD4FE4625 /* Pods-ChatApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.debug.xcconfig"; path = "Target Support Files/Pods-ChatApp/Pods-ChatApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5A5F39C2C865B755BEF14D1E /* Pods_ChatApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,7 @@
 		1E93D9BB285F716D00A9023E /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				1ED55741285FD04A0060239D /* Model */,
 				1E93D9BD285F718400A9023E /* View */,
 				1E93D9BC285F717A00A9023E /* Presenter */,
 			);
@@ -255,6 +258,14 @@
 				1EC60848285F5F5300FBE7FA /* SignUpPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1ED55741285FD04A0060239D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1ED55742285FD0570060239D /* UsersModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		21A6ED1F17A0111E61DF989D /* Pods */ = {
@@ -395,6 +406,7 @@
 				1E15879E285F682A00EE6074 /* HomePresenter.swift in Sources */,
 				1E981CC3285F4E5100FB9299 /* SceneDelegate.swift in Sources */,
 				1E93D9CB285F736500A9023E /* ChatViewController.swift in Sources */,
+				1ED55743285FD0570060239D /* UsersModel.swift in Sources */,
 				1E15FC4F285F5B25007A1EEE /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,28 +8,64 @@
 import UIKit
 
 class UsersTableViewController: UITableViewController {
+    //MARK:- Properties
+
+    var presenter: UsersPresenter?
+    var arrUsers = [UsersModel]()
+    //MARK:- View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        presenter = UsersPresenter(view: self)
+        title = "Contacts"
+        tableView.separatorStyle = .none
+        presenter?.loadKeys()
     }
 
     // MARK: - Table view data source
-
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return arrUsers.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        if arrUsers.count > 0 {
+            let user = arrUsers[indexPath.row]
+            cell.textLabel?.text = user.username
+            cell.detailTextLabel?.text = "Hi this is a message"
+        }else {
+            cell.textLabel?.text = "No Messages"
+        }
+        
 
-        cell.textLabel?.text = "Users"
-        cell.detailTextLabel?.text = "Hi this is a message"
         return cell
     }
+        
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print(indexPath.row)
+    }
 
+}
+
+//MARK:- Presenter
+extension UsersTableViewController: UsersView {
     
-
+    func emptyArr() {
+//    arrUsers = []
+        tableView.reloadData()
+    }
+    
+    func userDidLoad(users: UsersModel) {
+        print("Load users \(users)")
+        arrUsers.append(users)
+        tableView.reloadData()
+    }
 }
