@@ -49,9 +49,15 @@ class UsersTableViewController: UITableViewController {
     }
         
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedUser = arrUsers[indexPath.row]
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "chatViewID") as! ChatViewController
+        self.navigationController?.pushViewController(storyBoard, animated: true)
+        storyBoard.user = selectedUser
         
-        print(indexPath.row)
+        
     }
+    
+    
 
 }
 
