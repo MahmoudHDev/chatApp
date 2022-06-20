@@ -8,6 +8,11 @@
 import UIKit
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableViewConfig() {
+        tableView.separatorStyle = .none
+        tableView.delegate      = self
+        tableView.dataSource    = self
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }

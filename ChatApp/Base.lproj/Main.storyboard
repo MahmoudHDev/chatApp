@@ -245,18 +245,21 @@
                                 <rect key="frame" x="10" y="607" width="355" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="write a message ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="opw-1M-pzC">
-                                        <rect key="frame" x="0.0" y="0.0" width="283" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="273" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-ML-phd">
-                                        <rect key="frame" x="315" y="0.0" width="40" height="50"/>
+                                        <rect key="frame" x="305" y="0.0" width="50" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="tem-MK-EMQ"/>
+                                            <constraint firstAttribute="width" constant="50" id="tem-MK-EMQ"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="arrow.up.message.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="send:" destination="Agm-YI-mpc" eventType="touchUpInside" id="6c7-9O-ppl"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -291,6 +294,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="messageTextfield" destination="opw-1M-pzC" id="oye-2Q-7af"/>
+                        <outlet property="sendBttn" destination="RsI-ML-phd" id="Nul-Bn-5nM"/>
                         <outlet property="tableView" destination="YQ1-pw-tPW" id="jbZ-Yf-B11"/>
                     </connections>
                 </viewController>
