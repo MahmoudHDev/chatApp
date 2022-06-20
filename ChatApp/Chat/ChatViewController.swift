@@ -16,7 +16,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var sendBttn         : UIButton!
     var user        = UsersModel()
     var presenter   : ChatPresenter?
-    var messages    = [MessageModel]()
+    var arrMessages = [MessageModel]()
     
     //MARK:- View life Cycle
     
@@ -28,6 +28,7 @@ class ChatViewController: UIViewController {
         title = username
         presenter = ChatPresenter(view: self)
         presenter?.loadKeys()
+        presenter?.loadMessages()
         tableViewConfig()
         // Do any additional setup after loading the view.
     }
@@ -43,13 +44,18 @@ class ChatViewController: UIViewController {
         }
         
     }
-    
 }
 
 //MARK:- Presenter
 extension ChatViewController: ChatView {
     
-    func messageLoaded() {
+    func emptyArr() {
+        arrMessages = []
+    }
+    
+    func messageLoaded(messages: MessageModel) {
+        arrMessages.append(messages)
+        tableView.reloadData()
         print("Message has been loaded")
     }
     
@@ -57,4 +63,5 @@ extension ChatViewController: ChatView {
         print("Message Has been sent")
         messageTextfield.text = ""
     }
+    
 }
