@@ -27,7 +27,7 @@ class ChatViewController: UIViewController {
         
         title = username
         presenter = ChatPresenter(view: self)
-        presenter?.loadMessages(id: id)
+        presenter?.loadKeys()
         tableViewConfig()
         // Do any additional setup after loading the view.
     }
@@ -39,7 +39,6 @@ class ChatViewController: UIViewController {
         if messageTextfield.text != nil {
             guard let textMessage = messageTextfield.text,
                   let toUserID = user.userID else {return}
-            
             presenter?.sendMessage(txt: textMessage, toID: toUserID)
         }
         
@@ -54,4 +53,8 @@ extension ChatViewController: ChatView {
         print("Message has been loaded")
     }
     
+    func messageSent() {
+        print("Message Has been sent")
+        messageTextfield.text = ""
+    }
 }

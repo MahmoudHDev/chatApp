@@ -11,6 +11,7 @@ import Firebase
 //MARK:- Protocol
 
 protocol ChatView {
+    func messageSent()
     func messageLoaded()
 }
 //MARK:- Presenter
@@ -18,7 +19,8 @@ class ChatPresenter {
     
     //MARK:- Properties
     var view: ChatView?
-    
+    let db = Database.database().reference()
+    let ref = Firestore.firestore()
     
     //MARK:- Init
     init(view: ChatView) {
@@ -27,25 +29,48 @@ class ChatPresenter {
     
 
     //MARK:- Load Messages
-    func loadMessages(id: String) {
-        // UserID is the current ID     fromID
-        // id is the receiver ID        toID
-//        guard let userID = Auth.auth().currentUser?.uid else { return }
-//        let db = Database.database().reference()
-        // Load Message and append them to the message Model
+    func loadKeys() {
+        
+        db.child("users").getData { (err, dataSnapshot) in
+            if let error = err {
+                print("error \(error)")
+            }else {
+                guard let values = dataSnapshot?.value as? NSDictionary else {return}
+                guard let ids    = values.allKeys as? [String] else {return}
+                self.loadMessages()
+            }
+        }
+    }
+    
+    
+    func loadMessages() {
+        print("Load Messages..")
+        ref.collection("messages").addSnapshotListener { (querySnapshot, err) in
+            if let error = err {
+                print("\(error)")
+            }else{
+                if let docs = querySnapshot?.documents {
+                    for doc in docs {
+                        let data = doc.data()
+                        print(data)
+                    }
+                }
+            }
+        }
     }
     
     //MARK:- Send Message
     func sendMessage(txt: String, toID: String) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
-        let db = Database.database().reference()
-        
-        db.child("messages").setValue([
-            "fromID": userID,
-            "toID": toID,
-            "mssg": txt
-        ])
-        
+        let date = "\(Date())"
+        let values: [String : Any] = [
+        "fromID": userID,
+        "toID"  : toID,
+        "mssg"  : txt,
+        "time"  : date
+    ]
+        ref.collection("messages").document().setData(values)
+        self.view?.messageSent()
     }
     
 }

@@ -41,6 +41,7 @@ class UsersPresenter {
         }
         
     }
+    
     func loadusers(ids: [String]) {
         guard let userID = Auth.auth().currentUser?.uid else {return}
         
