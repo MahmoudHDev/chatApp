@@ -20,6 +20,8 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.font = UIFont(name: "Avenir Next", size: 18)
         if arrMessages.count > 0 {
             guard let userID = Auth.auth().currentUser?.uid else {return cell}
             let msgs = arrMessages[indexPath.row]
@@ -36,9 +38,11 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         }else {
             cell.textLabel?.text = "No Messages Yet"
         }
-        
+    
         return cell
     }
+    
+    
     
     
 }
