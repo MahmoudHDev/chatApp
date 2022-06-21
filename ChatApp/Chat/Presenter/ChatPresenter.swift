@@ -37,6 +37,7 @@ class ChatPresenter {
         ref.collection("messages")
             .document(fromID)
             .collection(toID)
+            .order(by: "time")
             .addSnapshotListener { (querSnapshot, error) in
                 if let err = error {
                     print("Error \(err.localizedDescription)")
