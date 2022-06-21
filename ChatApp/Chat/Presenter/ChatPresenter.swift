@@ -28,67 +28,74 @@ class ChatPresenter {
         self.view = view
     }
     
-
     //MARK:- Load Messages
-    func loadKeys() {
-        db.child("users").getData { (err, dataSnapshot) in
-            if let error = err {
-                print("error \(error)")
-            }else {
-                guard let values = dataSnapshot?.value as? NSDictionary else {return}
-                guard let ids    = values.allKeys as? [String] else {return}
-            }
-        }
-    }
-    
     
     func loadMessages(id: String) {
-//        id: the one who i messages by other meaning toID
-        // fromID : is the userID
-        guard let userID = Auth.auth().currentUser?.uid else {return}
-        print("Load Messages..")
-        let newRef = ref.collection("messages").whereField("fromID", isEqualTo: userID).whereField("toID", isEqualTo: id)
-            newRef.addSnapshotListener { (querySnapshot, err) in
-            if let error = err {
-                print("\(error)")
-            }else{
-                // Empty the array
-                self.view?.emptyArr()
-                if let docs = querySnapshot?.documents {
-                    for doc in docs {
-                        let data = doc.data()
-                        let mssg = data["mssg"] as? String
-                        let to   = data["toID"] as? String
-                        let from = data["fromID"] as? String
-                        let time = data["time"] as? String
+        
+        guard let fromID = Auth.auth().currentUser?.uid else {return}
+              let toID = id
+        ref.collection("messages")
+            .document(fromID)
+            .collection(toID)
+            .addSnapshotListener { (querSnapshot, error) in
+                if let err = error {
+                    print("Error \(err.localizedDescription)")
+                    return
+                }else {
+                    // Check the documents .doc is an array
+                    self.view?.emptyArr()
+                    querSnapshot?.documents.forEach({ (queryDocumentSnapShot) in
+                        let data    = queryDocumentSnapShot.data()
                         
-                        let message = MessageModel(fromID: from, toID: to, messageContent: mssg, time: time)
-                        self.view?.messageLoaded(messages: message)
+                        let mssg    = data["mssg"] as? String ?? ""
+                        let toID    = data["toId"] as? String ?? ""
+                        let fromID = data["fromId"] as? String ?? ""
 
-                        print(data)
-                    }
+                        let chatMessage = MessageModel(fromID: fromID, toID: toID, messageContent: mssg)
+                        self.view?.messageLoaded(messages: chatMessage)
+                    })
                 }
+            }
+    }
+    
+    //MARK:- Send Message
+    
+    func sendMessage(txt: String, toID: String) {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        let date = Timestamp()
+        let values: [String : Any] = [
+            "fromId": userID,
+            "toId"  : toID,
+            "mssg"  : txt,
+            "time"  : date
+        ]
+        let document = ref.collection("messages")
+            .document(userID)
+            .collection(toID)
+            .document()
+        document.setData(values) { error in
+            if let err = error {
+                print("Error while sending the message \(err)")
+            }else {
+                self.view?.messageSent()
+            }
+        }
+        
+        // so the message once will be saved in the other side collections
+        let recepientMessageDocument = ref.collection("messages")
+            .document(toID)
+            .collection(userID)
+            .document()
+        recepientMessageDocument.setData(values) { error in
+            if let err = error {
+                print("Error while sending the message \(err)")
+            }else {
+                self.view?.messageSent()
             }
         }
     }
     
-    /*
-     
-     ["mssg": Hello Theresa! How’s it going?, "fromID": Ii5lWJ1GltWILWEm69R6gsB4oCN2, "time": 2022-06-20 21:33:21 +0000, "toID": pKRuPUzQZsWBdxTqyOzE3TNrDch1]
-    */
     
-    //MARK:- Send Message
-    func sendMessage(txt: String, toID: String) {
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        let date = "\(Date())"
-        let values: [String : Any] = [
-        "fromID": userID,
-        "toID"  : toID,
-        "mssg"  : txt,
-        "time"  : date
-    ]
-        ref.collection("messages").document().setData(values)
-        self.view?.messageSent()
-    }
+    
     
 }

@@ -27,7 +27,6 @@ class ChatViewController: UIViewController {
         
         title = username
         presenter = ChatPresenter(view: self)
-        presenter?.loadKeys()
         presenter?.loadMessages(id: id)         // the one who i messages
         tableViewConfig()
     }

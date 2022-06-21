@@ -9,9 +9,7 @@ import Foundation
 
 struct MessageModel {
     
-    var fromID          : String?,
-        toID            : String?,
-        messageContent  : String?,
-        time            : String?
+    var fromID,toID, messageContent : String?
+    var time            : String?
     
 }
