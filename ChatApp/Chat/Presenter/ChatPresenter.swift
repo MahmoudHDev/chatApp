@@ -31,7 +31,6 @@ class ChatPresenter {
 
     //MARK:- Load Messages
     func loadKeys() {
-        
         db.child("users").getData { (err, dataSnapshot) in
             if let error = err {
                 print("error \(error)")
@@ -43,9 +42,13 @@ class ChatPresenter {
     }
     
     
-    func loadMessages() {
+    func loadMessages(id: String) {
+//        id: the one who i messages by other meaning toID
+        // fromID : is the userID
+        guard let userID = Auth.auth().currentUser?.uid else {return}
         print("Load Messages..")
-        ref.collection("messages").addSnapshotListener { (querySnapshot, err) in
+        let newRef = ref.collection("messages").whereField("fromID", isEqualTo: userID).whereField("toID", isEqualTo: id)
+            newRef.addSnapshotListener { (querySnapshot, err) in
             if let error = err {
                 print("\(error)")
             }else{
