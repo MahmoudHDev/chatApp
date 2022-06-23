@@ -17,9 +17,8 @@ class ChatViewController: UIViewController {
     var user        = UsersModel()
     var presenter   : ChatPresenter?
     var arrMessages = [MessageModel]()
-    
+    var me          = UsersModel()
     //MARK:- View life Cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let username = user.username,
@@ -27,6 +26,7 @@ class ChatViewController: UIViewController {
         
         title = username
         presenter = ChatPresenter(view: self)
+        presenter?.currentUserInfo()
         presenter?.loadMessages(id: id)         // the one who i messages
         tableViewConfig()
     }
@@ -46,6 +46,10 @@ class ChatViewController: UIViewController {
 //MARK:- Presenter
 extension ChatViewController: ChatView {
     
+    func userInfo(currUser: UsersModel) {
+        me = currUser
+    }
+    
     func emptyArr() {
         arrMessages = []
     }
@@ -58,7 +62,13 @@ extension ChatViewController: ChatView {
     
     func messageSent() {
         print("Message Has been sent")
+        guard let textMsg = messageTextfield.text,
+              let userID  = user.userID,
+              let toName  = user.username,
+              let email   = user.email else {return}
+        presenter?.persistRecentMessages(toId: userID, text: textMsg, name: toName, email: email, meModel: me)
         messageTextfield.text = ""
+        
     }
     
 }

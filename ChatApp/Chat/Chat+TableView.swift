@@ -22,10 +22,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MessageTableViewCell
-        
         cell.textLabel?.font = UIFont(name: "Avenir Next", size: 18)
-        cell.layer.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        cell.layer.cornerRadius = 25
         
         if arrMessages.count > 0 {
             guard let userID = Auth.auth().currentUser?.uid else {return cell}
@@ -33,16 +30,21 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
             if msgs.fromID == userID {
                 cell.bubbleView.image = UIImage(named: "ChatBubble S Low")
                 cell.messageCont.text = msgs.messageContent
+                
             }else {
                 cell.bubbleView.image = UIImage(named: "ChatBubble R Low")
                 cell.messageCont.text = msgs.messageContent
             }
-
         }else {
+            // View a view to tell the users that he hasn't message this user yet.
             cell.textLabel?.text = "No Messages Yet"
         }
-    
+        DispatchQueue.main.async {
+            let index = IndexPath(row: self.arrMessages.count - 1, section: 0)
+            tableView.scrollToRow(at: index, at: .bottom, animated: true)
+        }
         return cell
+        
     }
     
     
