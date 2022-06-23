@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Kc-50-Erl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="29R-M8-vuU">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -388,7 +388,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="signUpBttn:" destination="guo-FW-VyX" eventType="touchUpInside" id="zCk-07-wCI"/>
+                                                    <action selector="signUpBttn:" destination="guo-FW-VyX" eventType="touchUpInside" id="Gcr-Mc-a2D"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -419,10 +419,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="SignUp" id="VnN-3B-zGl"/>
                     <connections>
-                        <outlet property="passwordTextfield" destination="ff3-QW-Szl" id="mCP-w8-IZN"/>
+                        <outlet property="emailTextfield" destination="2N3-UB-Wxo" id="WlN-UE-x50"/>
+                        <outlet property="passwordTextfield" destination="ff3-QW-Szl" id="Ip3-ZG-QTV"/>
                         <outlet property="signupBtn" destination="jNk-db-hKC" id="Fgf-h1-xFm"/>
+                        <outlet property="signupBttn" destination="jNk-db-hKC" id="f7k-ev-vGK"/>
                         <outlet property="userText" destination="zHf-91-hzM" id="dj1-kb-ozU"/>
-                        <outlet property="usernameTextfield" destination="2N3-UB-Wxo" id="GmA-TS-wb5"/>
+                        <outlet property="usernameTextfield" destination="zHf-91-hzM" id="vfy-Ig-asr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yly-16-zeT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
