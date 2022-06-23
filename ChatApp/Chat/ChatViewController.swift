@@ -34,7 +34,6 @@ class ChatViewController: UIViewController {
     //MARK:- Actions
     
     @IBAction func send(_ sender: UIButton) {
-        
         if messageTextfield.text != nil {
             guard let textMessage = messageTextfield.text,
                   let toUserID = user.userID else {return}

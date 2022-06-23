@@ -25,6 +25,8 @@
 		1E981CCA285F4E5400FB9299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E981CC9285F4E5400FB9299 /* Assets.xcassets */; };
 		1E981CCD285F4E5400FB9299 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E981CCB285F4E5400FB9299 /* LaunchScreen.storyboard */; };
 		1E981CD6285F4ED200FB9299 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E981CD5285F4ED200FB9299 /* GoogleService-Info.plist */; };
+		1E9A93B02863879C005AFF1F /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A93AE2863879C005AFF1F /* MessageTableViewCell.swift */; };
+		1E9A93B12863879C005AFF1F /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9A93AF2863879C005AFF1F /* MessageTableViewCell.xib */; };
 		1EC60849285F5F5300FBE7FA /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC60848285F5F5300FBE7FA /* SignUpPresenter.swift */; };
 		1ECCEF252860C9A400BC5D99 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCEF242860C9A400BC5D99 /* ChatModel.swift */; };
 		1ED55743285FD0570060239D /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED55742285FD0570060239D /* UsersModel.swift */; };
@@ -52,6 +54,8 @@
 		1E981CCC285F4E5400FB9299 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E981CCE285F4E5400FB9299 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E981CD5285F4ED200FB9299 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1E9A93AE2863879C005AFF1F /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		1E9A93AF2863879C005AFF1F /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		1EC60848285F5F5300FBE7FA /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		1ECCEF242860C9A400BC5D99 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		1ED55742285FD0570060239D /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				1E93D9D8285F75C700A9023E /* Chat+TableView.swift */,
+				1E9A93AE2863879C005AFF1F /* MessageTableViewCell.swift */,
+				1E9A93AF2863879C005AFF1F /* MessageTableViewCell.xib */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -349,6 +355,7 @@
 			files = (
 				1E981CCD285F4E5400FB9299 /* LaunchScreen.storyboard in Resources */,
 				1E981CD6285F4ED200FB9299 /* GoogleService-Info.plist in Resources */,
+				1E9A93B12863879C005AFF1F /* MessageTableViewCell.xib in Resources */,
 				1E981CCA285F4E5400FB9299 /* Assets.xcassets in Resources */,
 				1E981CC8285F4E5100FB9299 /* Main.storyboard in Resources */,
 			);
@@ -414,6 +421,7 @@
 				1E93D9C5285F72F100A9023E /* UsersTableViewController.swift in Sources */,
 				1E981CC1285F4E5100FB9299 /* AppDelegate.swift in Sources */,
 				1E93D9D9285F75C700A9023E /* Chat+TableView.swift in Sources */,
+				1E9A93B02863879C005AFF1F /* MessageTableViewCell.swift in Sources */,
 				1EC60849285F5F5300FBE7FA /* SignUpPresenter.swift in Sources */,
 				1E15879E285F682A00EE6074 /* HomePresenter.swift in Sources */,
 				1E981CC3285F4E5100FB9299 /* SceneDelegate.swift in Sources */,

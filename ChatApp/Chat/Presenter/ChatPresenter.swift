@@ -34,6 +34,7 @@ class ChatPresenter {
         
         guard let fromID = Auth.auth().currentUser?.uid else {return}
               let toID = id
+        
         ref.collection("messages")
             .document(fromID)
             .collection(toID)

@@ -8,23 +8,36 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    //MARK:- Properties
 
     @IBOutlet weak var usernameTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
-    
+    @IBOutlet weak var signinBtn        : UIButton!
+
     var presenter: LoginPresenter?
+    
+    //MARK:- View life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
         presenter = LoginPresenter(view: self)
         // Do any additional setup after loading the view.
     }
-    
+    //MARK:- Actions
     @IBAction func signUpBttn(_ sender: UIButton) {
         guard let username = usernameTextfield.text,
               let password = passwordTextfield.text else { return }
         presenter?.signIn(email: username, password: password)
         
     }
+    //MARK:- Functions
+    func updateUI() {
+        signinBtn.layer.cornerRadius = 25
+        usernameTextfield.layer.cornerRadius = 25
+        passwordTextfield.layer.cornerRadius = 25
+    }
+
 
 }
 //MARK:- Presenter
