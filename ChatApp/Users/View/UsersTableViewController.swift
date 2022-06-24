@@ -56,9 +56,6 @@ class UsersTableViewController: UITableViewController {
         
         
     }
-    
-    
-
 }
 
 //MARK:- Presenter

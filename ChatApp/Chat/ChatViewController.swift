@@ -27,14 +27,19 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         presenter = ChatPresenter(view: self)
         tableViewConfig()
-        presenter?.loadMessages(id: strID!)
+        if strID == nil {
+            guard let username = user.username,
+                  let id       = user.userID else { return }
+            // what comes after guard doesn't implement unless the guard statment is = true!
+            title = username
+            presenter?.loadMessages(id: id)         // the one who i messages
+        }else{
+            presenter?.loadMessages(id: strID!)
+
+        }
         title = "Chat"
         presenter?.currentUserInfo()
-        guard let username = user.username,
-              let id       = user.userID else { return }
-        // what comes after guard doesn't implement unless guard is true!
-        title = username
-        presenter?.loadMessages(id: id)         // the one who i messages
+
         
     }
     
@@ -73,10 +78,6 @@ extension ChatViewController: ChatView {
     
     func messageSent() {
         print("Message Has been sent")
-//        guard let textMsg = messageTextfield.text,
-//              let userID  = user.userID,
-//              let toName  = user.username,
-//              let email   = user.email else {return}
         messageTextfield.text = ""
         
     }
