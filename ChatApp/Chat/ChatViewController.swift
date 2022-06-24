@@ -20,7 +20,6 @@ class ChatViewController: UIViewController {
     var arrMessages = [MessageModel]()
     var me          = UsersModel()
     
-    
     //MARK:- View life Cycle
     
     override func viewDidLoad() {
@@ -34,13 +33,13 @@ class ChatViewController: UIViewController {
             title = username
             presenter?.loadMessages(id: id)         // the one who i messages
         }else{
-            presenter?.loadMessages(id: strID!)
-
+            guard let otherId = strID else {return}
+            presenter?.loadMessages(id: otherId)
+            presenter?.getUserInfo(id: otherId)
+            title = user.username ?? "Chat"
         }
         title = "Chat"
         presenter?.currentUserInfo()
-
-        
     }
     
     //MARK:- Actions
@@ -55,9 +54,6 @@ class ChatViewController: UIViewController {
     }
 }
 
-
-
-
 //MARK:- Presenter
 extension ChatViewController: ChatView {
     
@@ -65,7 +61,10 @@ extension ChatViewController: ChatView {
         me = currUser
         presenter?.myInfo = currUser
     }
-    
+    func otherUserInfo(user: UsersModel) {
+        self.user = user
+        title = user.username ?? "chat"
+    }
     func emptyArr() {
         arrMessages = []
     }

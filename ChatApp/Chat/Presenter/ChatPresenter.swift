@@ -15,6 +15,7 @@ protocol ChatView {
     func messageSent()
     func messageLoaded(messages: MessageModel)
     func userInfo(currUser: UsersModel)
+    func otherUserInfo(user: UsersModel)
 }
 //MARK:- Presenter
 class ChatPresenter {
@@ -31,6 +32,10 @@ class ChatPresenter {
     
     
     //MARK:- Methods
+    
+    //MARK:- Handling the users
+
+    // 1st user Info
     func currentUserInfo() {
         print("Loading Docs")
         
@@ -49,6 +54,26 @@ class ChatPresenter {
         }
     }
     
+    // 2nd user Info
+    func getUserInfo(id: String) {
+        db.child("users").child(id).getData { (err, dataSnapshot) in
+            if let er = err {
+                print("error has been occured while fethching user data \(er.localizedDescription)")
+            }else {
+                guard let value = dataSnapshot?.value as?NSDictionary else {return}
+                // send it the view
+                let email    = value["email"] as? String
+                let userID   = value["userID"] as? String
+                let username = value["username"] as? String
+                let userModel = UsersModel(email: email, userID: userID, username: username)
+                self.view?.otherUserInfo(user: userModel)
+            }
+        }
+    }
+    
+    //MARK:- Handling the messages
+
+    // Load Messages
     func loadMessages(id: String) {
         
         guard let fromID = Auth.auth().currentUser?.uid else {return}
