@@ -15,20 +15,27 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var messageTextfield : UITextField!
     @IBOutlet weak var sendBttn         : UIButton!
     var user        = UsersModel()
+    var strID       : String?
     var presenter   : ChatPresenter?
     var arrMessages = [MessageModel]()
     var me          = UsersModel()
+    
+    
     //MARK:- View life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = ChatPresenter(view: self)
+        tableViewConfig()
+        presenter?.loadMessages(id: strID!)
+        title = "Chat"
+        presenter?.currentUserInfo()
         guard let username = user.username,
               let id       = user.userID else { return }
-        
+        // what comes after guard doesn't implement unless guard is true!
         title = username
-        presenter = ChatPresenter(view: self)
-        presenter?.currentUserInfo()
         presenter?.loadMessages(id: id)         // the one who i messages
-        tableViewConfig()
+        
     }
     
     //MARK:- Actions
@@ -36,18 +43,22 @@ class ChatViewController: UIViewController {
     @IBAction func send(_ sender: UIButton) {
         if messageTextfield.text != nil {
             guard let textMessage = messageTextfield.text,
-                  let toUserID = user.userID else {return}
-            presenter?.sendMessage(txt: textMessage, toID: toUserID)
+                  let toUserID = user.userID,
+                  let toName = user.username else {return}
+            presenter?.sendMessage(txt: textMessage, toID: toUserID, toName: toName)
         }
-        
     }
 }
+
+
+
 
 //MARK:- Presenter
 extension ChatViewController: ChatView {
     
     func userInfo(currUser: UsersModel) {
         me = currUser
+        presenter?.myInfo = currUser
     }
     
     func emptyArr() {

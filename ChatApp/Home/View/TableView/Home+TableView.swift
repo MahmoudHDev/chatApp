@@ -24,10 +24,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
         if recentMessages.count > 0 {
             let messages = recentMessages[indexPath.row]
-            cell.textLabel?.text = messages.toName
-            cell.detailTextLabel?.text = messages.text
+            cell.textLabel?.text        = messages.toName
+            cell.detailTextLabel?.text  = messages.text
+
         }else{
             cell.textLabel?.text = "Sam Louis"
             cell.detailTextLabel?.text = "Hello Sam This is me"
@@ -38,6 +40,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedUser = recentMessages[indexPath.row].toId ?? ""
+        
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "chatViewID") as! ChatViewController
+        storyBoard.strID = selectedUser
+        self.navigationController?.pushViewController(storyBoard, animated: true)
     }
     
 }

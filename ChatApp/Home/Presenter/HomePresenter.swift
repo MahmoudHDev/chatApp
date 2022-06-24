@@ -51,7 +51,7 @@ class HomePresenter {
                     let text        = data["text"] as? String
                     let to          = data["toId"] as? String
                     let from        = data["fromId"] as? String
-                    let name        = data["toName"] as? String
+                    let name        = data["name"] as? String
                     let RMessages   = RecentMessages(text: text, toId: to, toName: name, fromId: from)
                     self.loadusersName(id: to ?? "")
                     self.view?.messagesLoaded(recentMssgs: RMessages)

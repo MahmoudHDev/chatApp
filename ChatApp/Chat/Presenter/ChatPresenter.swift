@@ -23,7 +23,7 @@ class ChatPresenter {
     var view: ChatView?
     let db = Database.database().reference()        // For realtime DB
     let ref = Firestore.firestore()         // For Firestore
-    
+    var myInfo = UsersModel()
     //MARK:- Init
     init(view: ChatView) {
         self.view = view
@@ -80,7 +80,7 @@ class ChatPresenter {
     
     //MARK:- Send Message
     
-    func sendMessage(txt: String, toID: String) {
+    func sendMessage(txt: String, toID: String, toName: String) {
         guard let userID = Auth.auth().currentUser else { return }
         let date = Timestamp()
         let values: [String : Any] = [
@@ -97,7 +97,7 @@ class ChatPresenter {
             if let err = error {
                 print("Error while sending the message \(err)")
             }else {
-                self.persistRecentMessagesSender(toId: toID, text: txt)
+                self.persistRecentMessagesSender(toId: toID, text: txt, recName: toName)
                 self.view?.messageSent()
             }
         }
@@ -111,13 +111,13 @@ class ChatPresenter {
             if let err = error {
                 print("Error while sending the message \(err)")
             }else {
-                self.persistRecentMessagesReceiver(toId: toID, text: txt)
+                self.persistRecentMessagesReceiver(toId: toID, text: txt, fromName: self.myInfo.username ?? "" )
                 self.view?.messageSent()
             }
         }
     }
     
-    func persistRecentMessagesSender(toId: String, text: String) {
+    func persistRecentMessagesSender(toId: String, text: String, recName: String) {
         // Sender
         guard let userID = Auth.auth().currentUser else {return}
         let document = ref.collection("recent_Messages")
@@ -130,6 +130,7 @@ class ChatPresenter {
             "text"      : text,
             "fromId"    : userID.uid,
             "toId"      : toId,
+            "name"    : recName
             // Email & profilePhoto
         ]
         document.setData(data) { (er) in
@@ -142,20 +143,21 @@ class ChatPresenter {
     }   // End of PersistRecentMessages Func
     
     
-    func persistRecentMessagesReceiver(toId: String, text: String) {
+    func persistRecentMessagesReceiver(toId: String, text: String, fromName: String) {
         // Sender
         guard let userID = Auth.auth().currentUser else {return}
         let document = ref.collection("recent_Messages")
-            .document(toId)       // To ID
+            .document(toId)
             .collection("messages")
-            .document(userID.uid)             // UserID
+            .document(userID.uid)
         
         let data :[String: Any] = [
             "timeStamp" : Timestamp(),
             "text"      : text,
-            "fromId"    : toId,                        // toId
-            "toId"      : userID.uid,                 // userID
-            // Email & profilePhoto
+            "fromId"    : toId,
+            "toId"      : userID.uid,
+            "name"      : fromName
+            
         ]
         document.setData(data) { (er) in
             if let err = er {
