@@ -31,24 +31,26 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
             let msgs = arrMessages[indexPath.row]
             if msgs.fromID == userID {
                 cell.bubbleView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+                cell.meView.isHidden = true
                 cell.messageCont.text = msgs.messageContent
                 
             }else {
-                cell.bubbleView.backgroundColor = #colorLiteral(red: 0.4483983517, green: 0.726336658, blue: 0.5608868599, alpha: 1)
+                cell.bubbleView.backgroundColor = #colorLiteral(red: 0.4549019608, green: 0.4549019608, blue: 0.5019607843, alpha: 0.08)
+                cell.youView.isHidden = true
+                cell.messageCont.textColor = .black
                 cell.messageCont.text = msgs.messageContent
             }
-        }else {
-            cell.textLabel?.text = "No Messages Yet"
+        }else{
+            // Send to the UIViewController
+            print("No MEssages yet")
         }
         DispatchQueue.main.async {
             if self.arrMessages.count > 0 {
                 let index = IndexPath(row: self.arrMessages.count - 1, section: 0)
                 tableView.scrollToRow(at: index, at: .bottom, animated: true)
             }
-
         }
         return cell
-        
     }
     
     
