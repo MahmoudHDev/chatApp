@@ -62,11 +62,10 @@ extension ChatViewController: ChatView {
     
     func messageSent() {
         print("Message Has been sent")
-        guard let textMsg = messageTextfield.text,
-              let userID  = user.userID,
-              let toName  = user.username,
-              let email   = user.email else {return}
-        presenter?.persistRecentMessages(toId: userID, text: textMsg, name: toName, email: email, meModel: me)
+//        guard let textMsg = messageTextfield.text,
+//              let userID  = user.userID,
+//              let toName  = user.username,
+//              let email   = user.email else {return}
         messageTextfield.text = ""
         
     }

@@ -38,7 +38,7 @@
 		1E1587A2285F6AF800EE6074 /* Home+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+TableView.swift"; sourceTree = "<group>"; };
 		1E15FC4B285F5AFF007A1EEE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1E15FC53285F5D47007A1EEE /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
-		1E6E31BB2864B19B00890CB6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1E6E31BB2864B19B00890CB6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../SignUpViewController.swift; sourceTree = "<group>"; };
 		1E93D9C4285F72F100A9023E /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		1E93D9CA285F736500A9023E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		1E93D9CF285F738F00A9023E /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
@@ -120,8 +120,7 @@
 		1E15FC51285F5CBD007A1EEE /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				1E6E31BB2864B19B00890CB6 /* SignUpViewController.swift */,
-				1EC60846285F5F2300FBE7FA /* View */,
+				1E6E31BD2864B1DB00890CB6 /* View */,
 				1EC60847285F5F3200FBE7FA /* Presenter */,
 			);
 			path = SignUp;
@@ -134,6 +133,14 @@
 				1EC60844285F5F0700FBE7FA /* Presenter */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		1E6E31BD2864B1DB00890CB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E6E31BB2864B19B00890CB6 /* SignUpViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1E93D9BB285F716D00A9023E /* Users */ = {
@@ -249,13 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				1E15FC4B285F5AFF007A1EEE /* LoginViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		1EC60846285F5F2300FBE7FA /* View */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = View;
 			sourceTree = "<group>";

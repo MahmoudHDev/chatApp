@@ -40,8 +40,11 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = "No Messages Yet"
         }
         DispatchQueue.main.async {
-            let index = IndexPath(row: self.arrMessages.count - 1, section: 0)
-            tableView.scrollToRow(at: index, at: .bottom, animated: true)
+            if self.arrMessages.count > 0 {
+                let index = IndexPath(row: self.arrMessages.count - 1, section: 0)
+                tableView.scrollToRow(at: index, at: .bottom, animated: true)
+            }
+
         }
         return cell
         

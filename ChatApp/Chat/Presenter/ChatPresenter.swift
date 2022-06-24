@@ -29,7 +29,25 @@ class ChatPresenter {
         self.view = view
     }
     
-    //MARK:- Load Messages
+    
+    //MARK:- Methods
+    func currentUserInfo() {
+        print("Loading Docs")
+        
+        guard let userID = Auth.auth().currentUser?.uid else {return}
+        db.child("users").child(userID).getData { (er, dataSnapShot) in
+            if let err = er {
+                print("error has been occured while fetching the userdata \(err)")
+            }else {
+                guard let docs = dataSnapShot?.value as? NSDictionary else {return}
+                let username    = docs["username"] as? String
+                let email       = docs["email"] as? String
+                let id          = docs["userID"]as? String
+                let userModel   = UsersModel(email: email, userID: id, username: username)
+                self.view?.userInfo(currUser: userModel)
+            }
+        }
+    }
     
     func loadMessages(id: String) {
         
@@ -63,22 +81,23 @@ class ChatPresenter {
     //MARK:- Send Message
     
     func sendMessage(txt: String, toID: String) {
-        guard let userID = Auth.auth().currentUser?.uid else { return }
+        guard let userID = Auth.auth().currentUser else { return }
         let date = Timestamp()
         let values: [String : Any] = [
-            "fromId": userID,
+            "fromId": userID.uid,
             "toId"  : toID,
             "mssg"  : txt,
             "time"  : date
         ]
         let document = ref.collection("messages")
-            .document(userID)
+            .document(userID.uid)
             .collection(toID)
             .document()
         document.setData(values) { error in
             if let err = error {
                 print("Error while sending the message \(err)")
             }else {
+                self.persistRecentMessagesSender(toId: toID, text: txt)
                 self.view?.messageSent()
             }
         }
@@ -86,39 +105,21 @@ class ChatPresenter {
         // so the message once will be saved in the other side collections
         let recepientMessageDocument = ref.collection("messages")
             .document(toID)
-            .collection(userID)
+            .collection(userID.uid)
             .document()
         recepientMessageDocument.setData(values) { error in
             if let err = error {
                 print("Error while sending the message \(err)")
             }else {
+                self.persistRecentMessagesReceiver(toId: toID, text: txt)
                 self.view?.messageSent()
             }
         }
     }
     
-    func currentUserInfo() {
-        print("Loading Docs")
-        
-        guard let userID = Auth.auth().currentUser?.uid else {return}
-        db.child("users").child(userID).getData { (er, dataSnapShot) in
-            if let err = er {
-                print("error has been occured while fetching the userdata \(err)")
-            }else {
-                guard let docs = dataSnapShot?.value as? NSDictionary else {return}
-                let username    = docs["username"] as? String
-                let email       = docs["email"] as? String
-                let id          = docs["userID"]as? String
-                let userModel   = UsersModel(email: email, userID: id, username: username)
-                self.view?.userInfo(currUser: userModel)
-            }
-        }
-    }
-    
-    func persistRecentMessages(toId: String, text: String, name:String, email:String, meModel: UsersModel) {
-        
-        guard let userID = Auth.auth().currentUser else {return}
+    func persistRecentMessagesSender(toId: String, text: String) {
         // Sender
+        guard let userID = Auth.auth().currentUser else {return}
         let document = ref.collection("recent_Messages")
             .document(userID.uid)
             .collection("messages")
@@ -129,46 +130,41 @@ class ChatPresenter {
             "text"      : text,
             "fromId"    : userID.uid,
             "toId"      : toId,
-            "toName"    : name,
-            "toEmail"   : email
             // Email & profilePhoto
         ]
         document.setData(data) { (er) in
             if let err = er {
                 print("Error RecentMessages \(err) ")
             }else {
-                print("Successfully sent to Firestore")
-            }
-            
-        }
-        
-        // Receiver
-        let recieverDocument = ref.collection("recent_Messages")
-            .document(toId)
-            .collection("messages")
-            .document(userID.uid)
-        
-        let receiverData :[String: Any] = [
-            "timeStamp"  : Timestamp(),
-            "text"       : text,
-            "fromId"     : toId,
-            "toId"       : userID.uid,
-            "toName"     : meModel.username!,        // currentUserName      // needs edit
-            "toEmail"    : userID.email!
-            // Email & profilePhoto
-        ]
-        
-        recieverDocument.setData(receiverData) { (er) in
-            if let err = er {
-                print("er \(err.localizedDescription)")
-            }else {
-                print("Successfully sent to FireStore ")
+                print("Sender: Successfully sent to Firestore")
             }
         }
-        
     }   // End of PersistRecentMessages Func
     
     
+    func persistRecentMessagesReceiver(toId: String, text: String) {
+        // Sender
+        guard let userID = Auth.auth().currentUser else {return}
+        let document = ref.collection("recent_Messages")
+            .document(toId)       // To ID
+            .collection("messages")
+            .document(userID.uid)             // UserID
+        
+        let data :[String: Any] = [
+            "timeStamp" : Timestamp(),
+            "text"      : text,
+            "fromId"    : toId,                        // toId
+            "toId"      : userID.uid,                 // userID
+            // Email & profilePhoto
+        ]
+        document.setData(data) { (er) in
+            if let err = er {
+                print("Error RecentMessages \(err) ")
+            }else {
+                print("Receiver Successfully sent to Firestore")
+            }
+        }
+    }   // End of PersistRecentMessages Func
     
     
 }
