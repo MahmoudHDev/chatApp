@@ -8,14 +8,13 @@
 import UIKit
 
 class MessageTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var bubbleView: UIImageView!
+    @IBOutlet weak var bubbleView: UIView!
     @IBOutlet weak var messageCont: UILabel!
         
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
+
+        bubbleView.layer.cornerRadius = 25
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

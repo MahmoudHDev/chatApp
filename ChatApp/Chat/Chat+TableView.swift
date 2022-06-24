@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableViewConfig() {
         tableView.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.separatorStyle = .none
@@ -16,6 +17,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource    = self
         
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrMessages.count
     }
@@ -28,15 +30,14 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
             guard let userID = Auth.auth().currentUser?.uid else {return cell}
             let msgs = arrMessages[indexPath.row]
             if msgs.fromID == userID {
-                cell.bubbleView.image = UIImage(named: "ChatBubble S Low")
+                cell.bubbleView.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
                 cell.messageCont.text = msgs.messageContent
                 
             }else {
-                cell.bubbleView.image = UIImage(named: "ChatBubble R Low")
+                cell.bubbleView.backgroundColor = #colorLiteral(red: 0.4483983517, green: 0.726336658, blue: 0.5608868599, alpha: 1)
                 cell.messageCont.text = msgs.messageContent
             }
         }else {
-            // View a view to tell the users that he hasn't message this user yet.
             cell.textLabel?.text = "No Messages Yet"
         }
         DispatchQueue.main.async {

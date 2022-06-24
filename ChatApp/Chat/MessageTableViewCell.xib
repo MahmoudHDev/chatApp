@@ -16,41 +16,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChatBubble S Low" translatesAutoresizingMaskIntoConstraints="NO" id="oAT-tQ-sqn">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ni5-Mo-AEd">
                         <rect key="frame" x="10" y="10" width="300" height="60"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="115-TE-obl">
+                                <rect key="frame" x="10" y="10" width="280" height="40"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" red="0.99225836992263794" green="0.99611181020736694" blue="0.99599820375442505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.44839835169999998" green="0.72633665800000002" blue="0.56088685989999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="HbD-Qa-dio"/>
+                            <constraint firstItem="115-TE-obl" firstAttribute="top" secondItem="Ni5-Mo-AEd" secondAttribute="top" constant="10" id="KCf-d3-5bi"/>
+                            <constraint firstAttribute="bottom" secondItem="115-TE-obl" secondAttribute="bottom" constant="10" id="daO-7Q-VHR"/>
+                            <constraint firstItem="115-TE-obl" firstAttribute="leading" secondItem="Ni5-Mo-AEd" secondAttribute="leading" constant="10" id="gEo-WL-qWX"/>
+                            <constraint firstAttribute="trailing" secondItem="115-TE-obl" secondAttribute="trailing" constant="10" id="wtH-pQ-vg6"/>
                         </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="115-TE-obl">
-                        <rect key="frame" x="20" y="10" width="280" height="60"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
-                        <color key="textColor" red="0.99225836992263794" green="0.99611181020736694" blue="0.99599820375442505" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="115-TE-obl" secondAttribute="bottom" constant="10" id="6pc-Bv-29q"/>
-                    <constraint firstItem="115-TE-obl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="HuW-Qd-TNM"/>
-                    <constraint firstItem="oAT-tQ-sqn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="P3M-KF-ZQU"/>
-                    <constraint firstItem="oAT-tQ-sqn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ckf-UD-e5Z"/>
-                    <constraint firstItem="115-TE-obl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="poE-of-RCq"/>
-                    <constraint firstAttribute="trailing" secondItem="115-TE-obl" secondAttribute="trailing" constant="20" id="sBq-rz-Gtu"/>
-                    <constraint firstAttribute="trailing" secondItem="oAT-tQ-sqn" secondAttribute="trailing" constant="10" id="tVg-vp-6ng"/>
-                    <constraint firstItem="115-TE-obl" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="uEn-0N-zy5"/>
-                    <constraint firstAttribute="bottom" secondItem="oAT-tQ-sqn" secondAttribute="bottom" constant="10" id="xaE-Fk-iUh"/>
-                    <constraint firstItem="115-TE-obl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="xhR-SC-aHB"/>
+                    <constraint firstAttribute="bottom" secondItem="Ni5-Mo-AEd" secondAttribute="bottom" constant="10" id="PbK-by-cFv"/>
+                    <constraint firstItem="Ni5-Mo-AEd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="etv-qU-c8b"/>
+                    <constraint firstAttribute="trailing" secondItem="Ni5-Mo-AEd" secondAttribute="trailing" constant="10" id="gf3-Yz-IPX"/>
+                    <constraint firstItem="Ni5-Mo-AEd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="uEv-uc-dc5"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="bubbleView" destination="oAT-tQ-sqn" id="pZw-wX-pIe"/>
+                <outlet property="bubbleView" destination="Ni5-Mo-AEd" id="pzm-1c-ZSf"/>
                 <outlet property="messageCont" destination="115-TE-obl" id="vLX-AQ-rgc"/>
             </connections>
             <point key="canvasLocation" x="63.768115942028992" y="81.696428571428569"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="ChatBubble S Low" width="2102" height="712"/>
-    </resources>
 </document>
